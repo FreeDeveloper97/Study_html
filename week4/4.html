@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>화시 온도 계산기</title>
+    </head>
+    <body>
+        <h3>화시 온도 계산기</h3>
+        <hr>
+        <script>
+            var temp = prompt("섭시 온도를 입력하세요", "0");
+            if(temp == "" || temp == null)
+            {
+                document.write("입력이 없었습니다");
+            }
+            else
+            {
+                var result = temp*1.8+32;
+                document.write("섭씨(℃) : " + temp + " → 화씨(℉) : " + result);
+            }
+        </script>
+    </body>
+</html>
