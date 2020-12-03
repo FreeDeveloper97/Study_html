@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>중간고사 4번</title>
+        <style>
+            table th {
+                background-color: green;
+            }
+        </style>
+        <script>
+            var row = 0;
+            var col = 0;
+            function addRow() {
+                col = 0;
+                row++;
+                col++;
+                var par = document.getElementById("target");
+                if(row != 0) {
+                    var newTr = document.createElement("tr");
+                    newTr.setAttribute("id",row);
+                    par.append(newTr);
+                    par = document.getElementById(row);
+                }
+
+                var newRow = document.createElement("td");
+                var newRow2 = document.createElement("td");
+                newRow.innerHTML = "row " + row + ", cell " + col;
+                col++;
+                newRow2.innerHTML = "row " + row + ", cell " + col;
+                
+                par.appendChild(newRow);
+                par.appendChild(newRow2);
+            }
+            function addCol() {
+                alert("col");
+            }
+        </script>
+    </head>
+    <body>
+        <button type="button" id="add_row" onclick="addRow()">add_new_row</button>
+        <button type="button" id="add_col" onclick="addCol()">add_new_col</button>
+        <table border="1">
+            <thead>
+                <tr>
+                    <th>Header 1</th><th>Header 2</th>
+                </tr>
+            </thead>
+            <tbody id="target">
+                <tr></tr>
+            </tbody>
+        </table>
+    </body>
+</html>

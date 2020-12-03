@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>7주차 이론 4</title>
+        <script>
+            function init() {
+                var radio = new Array();
+                radio = document.getElementById("radio").onchange = changeImage;
+            }
+            function changeImage() {
+                for(var i=0; i<radio.length; i++) {
+                    if(radio[i].checked) {
+                        document.getElementById("selectImage").src = radio[i].value;
+                    }
+                }
+            }
+        </script>
+    </head>
+    <body onload="init()">
+        <h2>라디오 버튼을 클릭하면 이미지를 출력합니다.</h2>
+        <hr>
+        <form id="radio">
+            <input type="radio" name="fruit" id="radio1" value="images/banana.png" checked><label for="radio1">바나나</label>
+            <input type="radio" name="fruit" id="radio2" value="images/mango.png"><label for="radio2">망고</label>
+            <input type="radio" name="fruit" id="radio3" value="images/apple.jpg"><label for="radio3">사과</label>
+        </form>
+        <img id="selectImage" src="images/banana.png" width="150" height="120">
+    </body>
+</html>

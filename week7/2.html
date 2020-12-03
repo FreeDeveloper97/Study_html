@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>7주차 이론 2</title>
+        <script>
+            function init() {
+                var q1 = document.getElementById("q1").onclick = show1;
+                var q2 = document.getElementById("q2").onclick = show2;
+                var q3 = document.getElementById("q3").onclick = show3;
+            }
+            function show1() {
+                document.getElementById("q1").innerText = "2 + 4 = 6";
+            }
+            function show2() {
+                document.getElementById("q2").innerText = "4 * 20 + 64 = 144";
+            }
+            function show3() {
+                document.getElementById("q3").innerText = "20/5-8*2 = -12";
+            }
+        </script>
+    </head>
+    <body onload="init()">
+        <h2>계산해봅시다</h2>
+        <hr>
+        <p id="q1">2 + 4 = 답</p>
+        <p id="q2">4 * 20 + 64 = 답</p>
+        <p id="q3">20/5-8*2 = 답</p>
+    </body>
+</html>

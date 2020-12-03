@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>중간고사 3번</title>
+        <script>
+            var status = 0;
+            function start() {
+                var div = document.getElementById("div");
+                var today = new Date();
+                var today_time = today.toLocaleTimeString();
+                div.innerText = today_time;
+                setTimeout("start()",1000);
+                div.onclick = click;
+            }
+            function click() {
+                alert("click");
+            }
+            function addLi() {
+                var par = document.getElementById("target");
+                var newLi = document.createElement("li");
+                var newData = prompt("중간고사 시험시 유의사항을 입력하세요.");
+                newLi.innerHTML = newData;
+                par.appendChild(newLi);
+            }
+        </script>
+        <style>
+            #add {
+                background-color: lightgreen;
+            }
+        </style>
+    </head>
+    <body onload="start()">
+        <h3>시간을 보여주는 영역입니다.</h3>
+        <p>시계를 클릭하면 시계가 멈추고 다시 클릭하면 가기 시작합니다.</p>
+        <hr>
+        <div id="div" onclick="click()" style="background-color: lightblue;" >test</div>
+        <hr>
+        <h3>중간고사 시험 유의사항</h3>
+        <hr>
+        <div id="add" onclick="addLi()">
+            <ol id="target" type="A">
+                <li>결과물은 1.html, 2.html, 3.html 파일을 eleaming 시스템의 중간고사 제출 항목에 제출.</li>
+            </ol>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>DOM 객체 동적</title>
+        <script>
+            var q1 = 0;
+            var q2 = 0;
+            function show1() {
+                q1++;
+                if(q1 == 1) {
+                    var newP = document.createElement("p");
+                    newP.innerHTML = "백설공주";
+                    newP.setAttribute("id","q1");
+                    var p = document.getElementById("target1");
+                    p.appendChild(newP);
+                }
+            }
+            function show2() {
+                q2++;
+                if(q2 == 1) {
+                    var newP = document.createElement("p");
+                    newP.innerHTML = "둘다";
+                    newP.setAttribute("id","q2");
+                    var p = document.getElementById("target2");
+                    p.appendChild(newP);
+                }
+            }
+            
+        </script>
+    </head>
+    <body id="parent">
+        <h3>정답의 동적 삽입</h3>
+        <hr>
+        <p id="p1">Q. 거울아 거울아 세상에서 누가 제일 예쁘니?</p>
+        <button type="button" id="button1" onclick="show1()">답보기</button>
+        <p id="target1"></p>
+        <p>Q. 죽느냐 사느냐 어떤 것이 문제인가?</p>
+        <button type="button" id="button1" onclick="show2()">답보기</button>
+        <p id="target2"></p>
+    </body>
+</html>

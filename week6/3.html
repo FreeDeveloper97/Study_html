@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>6주차 이론 3</title>
+        <script>
+            var print = "";
+            var printArray = new Array();
+            function buttonClick() {
+                var menuArray = document.getElementById("menu");
+                for(var i=0; i<menuArray.length; i++)
+                {
+                    if(menuArray[i].checked)
+                    {
+                        printArray.push(menuArray[i].value);
+                    }
+                }
+                for(var i=0; i<printArray.length; i++)
+                {
+                    print += printArray[i];
+                    if(i != printArray.length-1)
+                    {
+                        print +=", ";
+                    }
+                }
+                print += "을(를) 주문하였습니다.";
+                //결론
+                document.getElementById("print").innerHTML = print;
+            }
+        </script>
+    </head>
+    <body>
+        <h1>메뉴를 선택하세요</h1>
+        <form id="menu">
+            <input type="checkbox" id="1" value="짜장면">
+            <label for="1">짜장면</label><br>
+            <input type="checkbox" id="2" value="짬뽕">
+            <label for="2">짬뽕</label><br>
+            <input type="checkbox" id="3" value="햄버거">
+            <label for="3">햄버거</label><br><br>
+        </form>
+        <button type="button" onclick="buttonClick()">주문완료</button>
+        <br>
+        <p id="print"></p>
+
+    </body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>9주차 이론 1</title>
+        <style>
+            canvas {
+                background: black;
+                border: 2px solid white;
+            }
+        </style>
+        <script>
+            var context;
+            var dx = 20;
+            var dy = 20;
+            var x = 100;
+            var y = 100;
+
+            function draw() {
+                var canvas = document.getElementById('myCanvas');
+                var context = canvas.getContext('2d');
+
+                context.clearRect(0,0,750,750);
+                context.beginPath();
+                context.fillStyle = "white";
+                // context.arc(x,y,20,0,Math.PI*2,true);
+                context.fillRect(x,y,40,40);
+                context.closePath();
+                context.fill();
+
+                if(x < (0 + 20) || x > (750 - 20)) {
+                    dx = -dx;
+                }
+                if(y < (0 + 20) || y > (750 - 20)) {
+                    dy = -dy;
+                }
+                x += dx;
+                y += dy;
+            }
+        </script>
+    </head>
+    <body>
+        <center>
+        <canvas id="myCanvas" width="750" height="750"></canvas>
+        <script>
+            draw();
+        </script>
+        </center>
+    </body>
+</html>

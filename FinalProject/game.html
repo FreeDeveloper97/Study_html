@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>9주차 이론 1</title>
+        <style>
+            canvas {
+                background: black;
+                border: 2px solid white;
+            }
+            body {
+                background: black;
+            }
+        </style>
+        <script>
+            var canvas;
+            var context;
+            var dx = 0;
+            var dy = 0;
+            var x = 330;
+            var y = 330;
+            var LENGTH=700;
+            var SIZE=40;
+            var intervalId;
+            var Xposition;
+            var Yposition = 0;
+            var Xposition2;
+            var Yposition2 = 0;
+            var num = 0;
+
+            function load() {
+                canvas = document.getElementById('myCanvas');
+                context = canvas.getContext('2d');
+                context.clearRect(0,0,LENGTH,LENGTH);
+                context.beginPath();
+                context.fillStyle = "white";
+                context.fillRect(x,y,SIZE,SIZE);
+                gameObject();
+                // context.fill();
+                context.closePath();
+                onLoadComplete();
+            }
+
+
+            function gameloop() {
+                tempX = x+=dx;
+                if(tempX >= 0 && tempX <= (LENGTH-SIZE)) {
+                    x = tempX;
+                }
+                else if(tempX < 0) {
+                    x = 0;
+                }
+                else {
+                    x = (LENGTH-SIZE);
+                }
+                tempY = y+=dy;
+                if(tempY >= 0 && tempY <= (LENGTH-SIZE)) {
+                    y = tempY;
+                }
+                else if(tempY < 0) {
+                    y = 0;
+                }
+                else {
+                    y = (LENGTH-SIZE);
+                }
+                context.clearRect(0,0,LENGTH,LENGTH);
+                context.fillStyle = "white";
+                context.fillRect(x,y,SIZE,SIZE);
+
+                Yposition += 4;
+                Yposition2 += 4;
+                if(Yposition >= 350 && num%2 == 1) {
+                    gameObject();
+                }
+                // if(Yposition >= 700) {
+                //     gameObject();
+                // }
+                if(Yposition2 >= 350 && num%2 == 0) {
+                    gameObject();
+                }
+                // if(Yposition2 >= 700) {
+                //     gameObject();
+                // }
+                context.fillStyle = "red";
+                context.fillRect(0,Yposition,Xposition-45,50);
+                context.fillRect(Xposition+45,Yposition,700,50);
+                context.fillRect(0,Yposition2,Xposition2-45,50);
+                context.fillRect(Xposition2+45,Yposition2,700,50);
+                test();
+            }
+
+            function keydown(e) {
+                var key = parseInt(e.keyCode);
+                if(key == 37) {
+                    dx = -6;
+                }
+                if(key == 38) {
+                    dy = -6;
+                }
+                if(key == 39) {
+                    dx = 6;
+                }
+                if(key == 40) {
+                    dy = 6;
+                }
+            }
+
+            function keyup(e) {
+                var key = parseInt(e.keyCode);
+                if(key == 37) {
+                    dx = 0;
+                }
+                if(key == 38) {
+                    dy = 0;
+                }
+                if(key == 39) {
+                    dx = 0;
+                }
+                if(key == 40) {
+                    dy = 0;
+                }
+            }
+
+            function test() {
+                var p = document.getElementById("p");
+                p.innerText = "x : " + x + ", y : " + y + " / Count : " + num;
+            }
+
+            function onLoadComplete() {
+                intervalId = setInterval(gameloop, 10);
+            }
+
+            function gameObject() {
+                num++;
+                if(num%2 == 1) {
+                    Xposition = Math.floor(Math.random()*595 + 55); //55 ~ 650중 빈칸 랜덤생성
+                    Yposition = -50;
+                    context.fillStyle = "red";
+                    context.fillRect(0,-50,Xposition-45,50);
+                    context.fillRect(Xposition+45,-50,700,50);
+                }
+                else {
+                    Xposition2 = Math.floor(Math.random()*595 + 55); //50 ~ 650중 빈칸 랜덤생성
+                    Yposition2 = -50;
+                    context.fillStyle = "red";
+                    context.fillRect(0,-50,Xposition2-45,50);
+                    context.fillRect(Xposition2+45,-50,700,50);
+                }
+            }
+        </script>
+    </head>
+    <body onload="load()" onkeydown="keydown(event)" onkeyup="keyup(event)">
+        <center>
+        <p id="p" style="color: white">x : 330, y : 330</p>
+        <canvas id="myCanvas" width="700" height="700"></canvas>
+        <script>
+            draw();
+        </script>
+        </center>
+    </body>
+</html>

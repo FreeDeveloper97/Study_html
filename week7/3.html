@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>7주차 이론 3</title>
+        <script>
+            function init() {
+                var select = document.getElementById("select").onchange = changeImage;
+            }
+            function changeImage() {
+                var index = select.selectedIndex;
+                document.getElementById("selectImage").src = select.options[index].value;
+            }
+        </script>
+    </head>
+    <body onload="init()">
+        <h2>select 객체에서 선택한 과일 출력</h2>
+        <hr>
+        <p>과일을 선택하면 이미지가 출력됩니다.</p>
+        <img id="selectImage" src="images/banana.png" width="150" height="120">
+        <form id="menu">
+            <select id="select" style="display: inline;">
+                <option value="images/banana.png">바나나</option>
+                <option value="images/mango.png">망고</option>
+                <option value="images/apple.jpg">사과</option>
+            </select>
+        </form>
+    </body>
+</html>

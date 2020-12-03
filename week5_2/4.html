@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>5주차 실습 4</title>
+        <script>
+            var result = 0;
+            function start() {
+                var rand1 = Math.random();
+                var rand2 = Math.random();
+                var num1 = Math.floor(rand1*100 + 1);
+                var num2 = Math.floor(rand2*100 + 1);
+                result = Number(num1+num2);
+                
+                var print = num1 + "+" + num2 + "=";
+                document.getElementById("question").innerHTML = print;
+            }
+            function buttonClick() {
+                var in_num = Number(document.getElementById("input").value);
+                if(in_num == result) {
+                    alert("맞았습니다!");
+                }
+                else {
+                    alert("틀렸습니다!");
+                }
+            }
+        </script>
+    </head>
+    <body>
+        <h3>덧셈 계산 하시고, 결과를 입력하고 확인 버튼을 클릭하여 정확한지 확인해 보세요.</h3>
+        <hr>
+        <form>
+            <p id="question"></p>
+            덧셈 결과 : <input type="text" id="input">
+            <button type="button" onclick="buttonClick()">결과 확인</button>
+        </form>
+        <script>
+            start();
+        </script>
+    </body>
+</html>

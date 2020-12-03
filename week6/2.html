@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>6주차 이론 2</title>
+        <script>
+            var rand = 0;
+            var num = 0;
+            var max = 0;
+            var numArray = new Array();
+            var printString1 = "";
+            function start() {
+                for(var i=0; i<10; i++)
+                {
+                    rand = Math.random();
+                    num = Math.floor(rand*100+1);
+                    numArray[i] = num;
+                }
+                for(var i=0; i<10; i++)
+                {
+                    printString1 += numArray[i] + " ";
+                }
+                numArray.sort(function(a,b){return a-b});
+                max = numArray[9];
+                //결론
+                document.getElementById("print").innerHTML = printString1;
+                document.getElementById("max").innerHTML = "제일 큰 수는 " + max;
+            }
+        </script>
+    </head>
+    <body>
+        <h2>난수 10개 생성</h2>
+        <hr>
+        <p id="print"></p>
+        <p id="max"></p>
+        <script>
+            start();
+        </script>
+    </body>
+</html>

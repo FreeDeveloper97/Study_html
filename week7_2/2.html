@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>7주차 실습 2</title>
+        <script>
+            var files=[
+                "media/1.png",
+                "media/2.png",
+                "media/3.png",
+                "media/4.png",
+                "media/5.png",
+                "media/6.png",
+                "media/7.png",
+                "media/8.png",
+                "media/9.png",
+                "media/10.png"];
+            var imgs = new Array();
+            for(var i=0; i<files.length; i++) {
+                imgs[i] = new Image();
+                imgs[i].src = files[i];
+            }
+
+            var next = 1;
+            function change(img) {
+                img.src = imgs[next].src;
+                next++;
+                next%=imgs.length;
+            }
+        </script>
+    </head>
+    <body>
+        <h3>new Image()로 이미지 로딩</h3>
+        <hr>
+        <p>이미지를 클릭하면 다음 이미지를 보여줍니다.</p>
+        <img style="border:20px ridge wheat" src="media/1.png" alt="." width="60%" onclick="change(this)">
+    </body>
+</html>

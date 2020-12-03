@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>7주차 실습 8</title>
+        <script>
+            function enter(e) {
+                var key = parseInt(e.keyCode);
+                if(key == 13) {
+                    var input = document.getElementById("input").value;
+                    var result = eval(input);
+                    document.getElementById("print").value = result;
+                }
+            }
+        </script>
+    </head>
+    <body>
+        <h3>계산기 만들기</h3>
+        <hr>
+        <p>수식을 입력하고 &lt;Enter&gt;를 입력하세요.</p>
+        <form>
+            식 <input type="text" id="input" onkeydown="enter(event)"><br>
+            값 <input type="text" id="print"><br>
+        </form>
+    </body>
+</html>

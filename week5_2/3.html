@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>5주차 실습 3</title>
+        <script>
+            function buttonClick() {
+                var n1 = Number(document.getElementById("num1").value);
+                var n2 = Number(document.getElementById("num2").value);
+                var result = n1+n2;
+                document.getElementById("result").value = result;
+            }
+        </script>
+    </head>
+    <body>
+        <h2>덧셈 계산기</h2>
+        <form>
+            첫번째 정수 : <input type="text" id="num1"><br>
+            두번째 정수 : <input type="text" id="num2"><br>
+            합계 : <input type="text" id="result"><br>
+            <button type="button" onclick="buttonClick()">계산</button>
+        </form>
+    </body>
+</html>

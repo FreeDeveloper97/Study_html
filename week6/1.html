@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>6주차 이론 1</title>
+        <script>
+            var result = "";
+            function Book() {
+                this.title="";
+                this.author="";
+                this.price="";
+            }
+            function inputStart() {
+                for(var i=0; i<5; i++)
+                {
+                    var myBook1 = new Book();
+                    var input = prompt("콤마(,)로 분리하면서 책제목 저자 가격 순으로 입력","");
+                    var inputArray = input.split(',');
+                    myBook1.title = inputArray[0];
+                    myBook1.author = inputArray[1];
+                    myBook1.price = inputArray[2];
+                    result += +myBook1.title+", "+myBook1.author+", "+myBook1.price+"<br>";
+                }
+                document.getElementById("print").innerHTML = result;
+            }
+        </script>
+    </head>
+    <body>
+        <h2>book 객체 배열 만들기</h2>
+        <hr>
+        <p id="print"></p>
+        <script>
+            inputStart();
+        </script>
+    </body>
+</html>
